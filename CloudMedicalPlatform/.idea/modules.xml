@@ -3,6 +3,10 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/CloudMedicalPlatform.iml" filepath="$PROJECT_DIR$/CloudMedicalPlatform.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CloudMedicalPlatform_dao/CloudMedicalPlatform_dao.iml" filepath="$PROJECT_DIR$/CloudMedicalPlatform_dao/CloudMedicalPlatform_dao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CloudMedicalPlatform_domain/CloudMedicalPlatform_domain.iml" filepath="$PROJECT_DIR$/CloudMedicalPlatform_domain/CloudMedicalPlatform_domain.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CloudMedicalPlatform_service/CloudMedicalPlatform_service.iml" filepath="$PROJECT_DIR$/CloudMedicalPlatform_service/CloudMedicalPlatform_service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CloudMedicalPlatform_utils/CloudMedicalPlatform_utils.iml" filepath="$PROJECT_DIR$/CloudMedicalPlatform_utils/CloudMedicalPlatform_utils.iml" />
       <module fileurl="file://$PROJECT_DIR$/CloudMedicalPlatform_web/CloudMedicalPlatform_web.iml" filepath="$PROJECT_DIR$/CloudMedicalPlatform_web/CloudMedicalPlatform_web.iml" />
     </modules>
   </component>

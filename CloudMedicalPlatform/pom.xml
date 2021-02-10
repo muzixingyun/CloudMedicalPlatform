@@ -10,6 +10,10 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>CloudMedicalPlatform_web</module>
+        <module>CloudMedicalPlatform_service</module>
+        <module>CloudMedicalPlatform_dao</module>
+        <module>CloudMedicalPlatform_domain</module>
+        <module>CloudMedicalPlatform_utils</module>
     </modules>
 
 

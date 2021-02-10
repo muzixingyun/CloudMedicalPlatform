@@ -6,11 +6,19 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="CloudMedicalPlatform_dao" />
+        <module name="CloudMedicalPlatform_domain" />
+        <module name="CloudMedicalPlatform_service" />
+        <module name="CloudMedicalPlatform_utils" />
         <module name="CloudMedicalPlatform_web" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="CloudMedicalPlatform" target="1.5" />
+      <module name="CloudMedicalPlatform_dao" target="1.5" />
+      <module name="CloudMedicalPlatform_domain" target="1.5" />
+      <module name="CloudMedicalPlatform_service" target="1.5" />
+      <module name="CloudMedicalPlatform_utils" target="1.5" />
       <module name="CloudMedicalPlatform_web" target="1.7" />
     </bytecodeTargetLevel>
   </component>
