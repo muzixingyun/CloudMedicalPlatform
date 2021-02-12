@@ -19,7 +19,7 @@
       <module name="CloudMedicalPlatform_domain" target="1.5" />
       <module name="CloudMedicalPlatform_service" target="1.5" />
       <module name="CloudMedicalPlatform_utils" target="1.5" />
-      <module name="CloudMedicalPlatform_web" target="1.7" />
+      <module name="CloudMedicalPlatform_web" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
