@@ -10,4 +10,5 @@ import org.springframework.security.core.userdetails.UserDetailsService;
  * @version:
  */
 public interface IUserService extends UserDetailsService{
+    void saveUser(club.qlulxy.domain.User user);
 }

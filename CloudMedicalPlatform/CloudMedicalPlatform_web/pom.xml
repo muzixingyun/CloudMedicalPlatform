@@ -34,6 +34,11 @@
             <artifactId>CloudMedicalPlatform_service</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
+        <dependency>
+            <groupId>club.qlulxy</groupId>
+            <artifactId>CloudMedicalPlatform_domain</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 
     <build>
