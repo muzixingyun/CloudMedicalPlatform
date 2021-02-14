@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
+<%@taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 <html>
     <head>
         <title>Title</title>
@@ -46,7 +47,7 @@
                                                                     style="height: 50px;"/></div>
                                         <div class="unit-body"><a
                                                 class="link-inherit font-weight-medium white-space-wrap"
-                                                href="${pageContext.request.contextPath}/#">您好,<security:authentication property="principal.username"/></a>
+                                                href="${pageContext.request.contextPath}/login">您好,<security:authentication property="principal.username"/></a>
                                             <br/>
                                             <a href="${pageContext.request.contextPath}/logout"
                                                class="link-inherit font-weight-medium white-space-wrap">退出登录</a>
@@ -114,7 +115,7 @@
                                                 class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
                                         </li>
                                         <li>
-                                            <a href="${pageContext.request.contextPath}/${pageContext.request.contextPath}/pages/login.jsp"><span>注册登录</span><span
+                                            <a href="${pageContext.request.contextPath}/pages/login.jsp"><span>注册登录</span><span
                                                     class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
                                         </li>
                                         <li><a href="${pageContext.request.contextPath}/blog-grid.jsp"><span>医生入口</span><span

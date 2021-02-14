@@ -55,7 +55,7 @@
                         <div class="col-md-6 col-lg-4">
                             <div class="service"><img src="images/icons/icon-brain-80x80.png" alt="" width="80"
                                                       height="80"/>
-                                <h5 class="service-title"><a href="#">心血管内科</a></h5>
+                                <h5 class="service-title"><a href="${pageContext.request.contextPath}/department/findAllDiseaseByDepartmentName?departmentName=心血管内科">心血管内科</a></h5>
                                 <div class="service-desc">治疗的疾病包括心绞痛、高血压、猝死、心律失常、心力衰竭、早搏、心律不齐、心肌梗死、心肌病、心肌炎、心肌梗塞等心血管疾病。
                                 </div>
                             </div>
