@@ -11,6 +11,9 @@
     <security:http security="none" pattern="/pages/register.jsp"/>
     <security:http security="none" pattern="/user/saveUser"/>
     <security:http security="none" pattern="/index.jsp"/>
+    <security:http security="none" pattern="/head.jsp"/>
+    <security:http security="none" pattern="/foot.jsp"/>
+    <security:http security="none" pattern="/pages/about.jsp"/>
     <security:http security="none" pattern="/fonts.googleapis.com/css2"/>
     <security:http security="none" pattern="/css/**"/>
     <security:http security="none" pattern="/img/**"/>
