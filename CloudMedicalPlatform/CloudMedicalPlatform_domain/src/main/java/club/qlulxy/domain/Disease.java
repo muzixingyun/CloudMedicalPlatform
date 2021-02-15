@@ -72,4 +72,17 @@ public class Disease {
     public void setDepartment(Department department) {
         this.department = department;
     }
+
+    @Override
+    public String toString() {
+        return "Disease{" +
+                "id=" + id +
+                ", diseaseName='" + diseaseName + '\'' +
+                ", reason='" + reason + '\'' +
+                ", symptom='" + symptom + '\'' +
+                ", treatment='" + treatment + '\'' +
+                ", prevention='" + prevention + '\'' +
+                ", department=" + department +
+                '}';
+    }
 }

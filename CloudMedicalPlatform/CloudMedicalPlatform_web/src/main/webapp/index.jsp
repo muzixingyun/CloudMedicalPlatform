@@ -216,7 +216,7 @@
                         <div class="col-md-6 col-lg-4">
                             <div class="service"><img src="images/icons/icon-lungs-80x80.png" alt="" width="80"
                                                       height="80"/>
-                                <h5 class="service-title"><a href="#">五官科（耳鼻咽喉科）</a></h5>
+                                <h5 class="service-title"><a href="${pageContext.request.contextPath}/department/findAllDiseaseByDepartmentName?departmentName=五官科（耳鼻咽喉科）">五官科（耳鼻咽喉科）</a></h5>
                                 <div class="service-desc">
                                     耳鼻咽喉相关常见疾病：睡眠呼吸综合暂停症（鼾症·打呼噜）、支气管炎、哮喘、头痛、眩晕症、失眠症、面神经疼。
                                 </div>

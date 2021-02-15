@@ -1,8 +1,10 @@
 package club.qlulxy.service.impl;
 
 import club.qlulxy.dao.IDepartmentDao;
+import club.qlulxy.domain.Department;
 import club.qlulxy.domain.Disease;
 import club.qlulxy.service.IDepartmentService;
+import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -24,5 +26,10 @@ public class DepartmentServiceImpl implements IDepartmentService {
 
     public List<Disease> findAllDiseaseByDepartmentName(String departmentName) throws Exception {
         return departmentDao.findAllDiseaseByDepartmentName(departmentName);
+    }
+
+    public List<Department> findAll(Integer page, Integer num) throws Exception {
+        PageHelper.startPage(page, num);
+        return departmentDao.findAll();
     }
 }

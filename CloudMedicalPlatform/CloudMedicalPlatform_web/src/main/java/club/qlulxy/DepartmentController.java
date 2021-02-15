@@ -1,11 +1,14 @@
 package club.qlulxy;
 
+import club.qlulxy.domain.Department;
 import club.qlulxy.domain.Disease;
 import club.qlulxy.service.IDepartmentService;
+import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -24,10 +27,31 @@ public class DepartmentController {
     @Autowired
     private IDepartmentService departmentService;
 
+    /**
+     * 根据科室名称查询科室所属的所有疾病并展示
+     * @param model
+     * @param departmentName
+     * @return
+     * @throws Exception
+     */
     @RequestMapping("findAllDiseaseByDepartmentName")
-    public String findAllDiseaseByDepartmentName(Model model, String departmentName) throws Exception {
+    public String findAllDiseaseByDepartmentName(Model model, String departmentName,@RequestParam(defaultValue = "user") String role) throws Exception {
         List<Disease> diseaseList = departmentService.findAllDiseaseByDepartmentName(departmentName);
         model.addAttribute("diseaseList", diseaseList);
-        return "disease-List";
+        model.addAttribute("departmentName", departmentName);
+        if (role.equals("_d_o_c_")){
+            return "doctor-disease-List";
+        }else if (role.equals("user")){
+            return "disease-List";
+        }
+        return "index";
+    }
+
+    @RequestMapping("findAll")
+    public String findAll(Model model, @RequestParam(defaultValue = "1") Integer page, @RequestParam(defaultValue = "9") Integer num) throws Exception {
+        List<Department> departmentList = departmentService.findAll(page,num);
+        PageInfo pageInfo = new PageInfo(departmentList);
+        model.addAttribute("pageInfo", pageInfo);
+        return "doctor-department-List";
     }
 }

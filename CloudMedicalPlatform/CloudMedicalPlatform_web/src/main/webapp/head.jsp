@@ -118,7 +118,7 @@
                                             <a href="${pageContext.request.contextPath}/pages/login.jsp"><span>注册登录</span><span
                                                     class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
                                         </li>
-                                        <li><a href="${pageContext.request.contextPath}/blog-grid.jsp"><span>医生入口</span><span
+                                        <li><a href="${pageContext.request.contextPath}/doctor-index.jsp"><span>医生入口</span><span
                                                 class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
                                         </li>
                                     </ul>
