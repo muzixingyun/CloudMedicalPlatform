@@ -9,7 +9,11 @@
     <security:http security="none" pattern="/pages/fail.jsp"/>
     <security:http security="none" pattern="/pages/login.jsp"/>
     <security:http security="none" pattern="/pages/register.jsp"/>
+    <security:http security="none" pattern="/pages/doctor-join.jsp"/>
     <security:http security="none" pattern="/user/saveUser"/>
+    <security:http security="none" pattern="/department/ajaxFindAll"/>
+    <security:http security="none" pattern="/doctor/checkRegist"/>
+    <security:http security="none" pattern="/doctor/join"/>
     <security:http security="none" pattern="/index.jsp"/>
     <security:http security="none" pattern="/head.jsp"/>
     <security:http security="none" pattern="/foot.jsp"/>
@@ -21,6 +25,7 @@
     <security:http security="none" pattern="/fonts/**"/>
     <security:http security="none" pattern="/images/**"/>
     <security:http security="none" pattern="/js/**"/>
+    <security:http security="none" pattern="/json/**"/>
 
 
 

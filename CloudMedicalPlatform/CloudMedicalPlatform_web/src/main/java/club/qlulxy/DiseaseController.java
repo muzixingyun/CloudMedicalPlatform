@@ -21,6 +21,13 @@ public class DiseaseController {
     private IDiseaseService diseaseService;
 
 
+    /**
+     * 用于在某个科室下添加一个疾病
+     * @param disease
+     * @param departmentName
+     * @return
+     * @throws Exception
+     */
     @RequestMapping("/save")
     public String save(Disease disease, String departmentName) throws Exception {
         diseaseService.save(disease,departmentName);

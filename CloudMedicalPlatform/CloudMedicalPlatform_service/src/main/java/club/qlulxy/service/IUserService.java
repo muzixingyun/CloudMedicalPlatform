@@ -1,5 +1,6 @@
 package club.qlulxy.service;
 
+import club.qlulxy.domain.User;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
 /**
@@ -11,4 +12,6 @@ import org.springframework.security.core.userdetails.UserDetailsService;
  */
 public interface IUserService extends UserDetailsService{
     void saveUser(club.qlulxy.domain.User user);
+
+    User checkRegist(String name) throws Exception;
 }

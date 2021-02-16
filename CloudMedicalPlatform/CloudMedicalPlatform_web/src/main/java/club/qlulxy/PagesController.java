@@ -15,6 +15,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/pages")
 public class PagesController {
 
+    /**
+     * 跳转到doctor-add-disease页面
+     * @param model
+     * @param departmentName
+     * @return
+     */
     @RequestMapping("/doctor-add-disease-redirect")
     public String doctorAddDiseaseRedirect(Model model,String departmentName){
         model.addAttribute("departmentName",departmentName);

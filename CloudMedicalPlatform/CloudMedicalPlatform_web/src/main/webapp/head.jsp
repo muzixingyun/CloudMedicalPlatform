@@ -121,6 +121,9 @@
                                         <li><a href="${pageContext.request.contextPath}/doctor-index.jsp"><span>医生入口</span><span
                                                 class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
                                         </li>
+                                        <li><a href="${pageContext.request.contextPath}/pages/doctor-join.jsp"><span>医生入驻</span><span
+                                                class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
+                                        </li>
                                     </ul>
                                 </div>
                             </div>

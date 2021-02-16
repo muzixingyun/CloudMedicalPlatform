@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
@@ -47,6 +48,14 @@ public class DepartmentController {
         return "index";
     }
 
+    /**
+     * 查询所有科室
+     * @param model
+     * @param page
+     * @param num
+     * @return
+     * @throws Exception
+     */
     @RequestMapping("findAll")
     public String findAll(Model model, @RequestParam(defaultValue = "1") Integer page, @RequestParam(defaultValue = "9") Integer num) throws Exception {
         List<Department> departmentList = departmentService.findAll(page,num);
@@ -54,4 +63,17 @@ public class DepartmentController {
         model.addAttribute("pageInfo", pageInfo);
         return "doctor-department-List";
     }
+
+    /**
+     * 异步查询所有科室
+     *
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("/ajaxFindAll")
+    public @ResponseBody List<Department> ajaxFindAll() throws Exception {
+        List<Department> departmentList = departmentService.findAll(1,100);
+        return departmentList;
+    }
+
 }

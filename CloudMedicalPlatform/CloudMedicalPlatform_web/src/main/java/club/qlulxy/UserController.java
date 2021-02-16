@@ -20,7 +20,12 @@ public class UserController {
     @Autowired
     private IUserService userService;
 
-    //新建用户
+    /**
+     * 用于新建一个用户
+     *
+     * @param user
+     * @return login.jsp
+     */
     @RequestMapping("/saveUser")
     public String saveUser(User user) {
         userService.saveUser(user);

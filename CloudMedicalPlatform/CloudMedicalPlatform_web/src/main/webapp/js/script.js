@@ -77,7 +77,7 @@ function isScrolledIntoView(elem) {
  * @param {function} func - init function
  */
 function lazyInit(element, func) {
-	let scrollHandler = function () {
+	var scrollHandler = function () {
 		if ((!element.hasClass('lazy-loaded') && (isScrolledIntoView(element)))) {
 			func.call(element);
 			element.addClass('lazy-loaded');
@@ -116,8 +116,8 @@ $window.on('load', function () {
 
 	// Progress Bar
 	if (plugins.progressLinear) {
-		for (let i = 0; i < plugins.progressLinear.length; i++) {
-			let
+		for (var i = 0; i < plugins.progressLinear.length; i++) {
+			var
 				container = plugins.progressLinear[i],
 				counter = aCounter({
 					node:     container.querySelector('.progress-linear-counter'),
@@ -159,8 +159,8 @@ $window.on('load', function () {
 		if (!isNoviBuilder && !isIE && !isMobile) {
 			plugins.materialParallax.parallax();
 		} else {
-			for (let i = 0; i < plugins.materialParallax.length; i++) {
-				let $parallax = $(plugins.materialParallax[i]);
+			for (var i = 0; i < plugins.materialParallax.length; i++) {
+				var $parallax = $(plugins.materialParallax[i]);
 
 				$parallax.addClass('parallax-disabled');
 				$parallax.css({"background-image": 'url(' + $parallax.data("parallax-img") + ')'});
@@ -170,12 +170,12 @@ $window.on('load', function () {
 
 	// Isotope
 	if (plugins.isotope.length) {
-		for (let i = 0; i < plugins.isotope.length; i++) {
-			let
+		for (var i = 0; i < plugins.isotope.length; i++) {
+			var
 				wrap = plugins.isotope[i],
 				filterHandler = function (event) {
 					event.preventDefault();
-					for (let n = 0; n < this.isoGroup.filters.length; n++) this.isoGroup.filters[n].classList.remove('active');
+					for (var n = 0; n < this.isoGroup.filters.length; n++) this.isoGroup.filters[n].classList.remove('active');
 					this.classList.add('active');
 					this.isoGroup.isotope.arrange({filter: this.getAttribute("data-isotope-filter") !== '*' ? '[data-filter*="' + this.getAttribute("data-isotope-filter") + '"]' : '*'});
 				},
@@ -198,8 +198,8 @@ $window.on('load', function () {
 				}())
 			});
 
-			for (let n = 0; n < wrap.isoGroup.filters.length; n++) {
-				let filter = wrap.isoGroup.filters[n];
+			for (var n = 0; n < wrap.isoGroup.filters.length; n++) {
+				var filter = wrap.isoGroup.filters[n];
 				filter.isoGroup = wrap.isoGroup;
 				filter.addEventListener('click', filterHandler);
 			}
@@ -291,7 +291,7 @@ $document.ready(function () {
 	 * @param {object} swiper - swiper instance
 	 */
 	function setRealPrevious(swiper) {
-		let element = swiper.$wrapperEl[0].children[swiper.activeIndex];
+		var element = swiper.$wrapperEl[0].children[swiper.activeIndex];
 		swiper.realPrevious = Array.prototype.indexOf.call(element.parentNode.children, element);
 	}
 
@@ -300,10 +300,10 @@ $document.ready(function () {
 	 * @param {object} swiper - swiper instance
 	 */
 	function setBackgrounds(swiper) {
-		let swipersBg = swiper.el.querySelectorAll('[data-slide-bg]');
+		var swipersBg = swiper.el.querySelectorAll('[data-slide-bg]');
 
-		for (let i = 0; i < swipersBg.length; i++) {
-			let swiperBg = swipersBg[i];
+		for (var i = 0; i < swipersBg.length; i++) {
+			var swiperBg = swipersBg[i];
 			swiperBg.style.backgroundImage = 'url(' + swiperBg.getAttribute('data-slide-bg') + ')';
 		}
 	}
@@ -313,10 +313,10 @@ $document.ready(function () {
 	 * @param {object} swiper - swiper instance
 	 */
 	function initCaptionAnimate(swiper) {
-		let
+		var
 			animate = function (caption) {
 				return function () {
-					let duration;
+					var duration;
 					if (duration = caption.getAttribute('data-caption-duration')) caption.style.animationDuration = duration + 'ms';
 					caption.classList.remove('not-animated');
 					caption.classList.add(caption.getAttribute('data-caption-animate'));
@@ -324,16 +324,16 @@ $document.ready(function () {
 				};
 			},
 			initializeAnimation = function (captions) {
-				for (let i = 0; i < captions.length; i++) {
-					let caption = captions[i];
+				for (var i = 0; i < captions.length; i++) {
+					var caption = captions[i];
 					caption.classList.remove('animated');
 					caption.classList.remove(caption.getAttribute('data-caption-animate'));
 					caption.classList.add('not-animated');
 				}
 			},
 			finalizeAnimation = function (captions) {
-				for (let i = 0; i < captions.length; i++) {
-					let caption = captions[i];
+				for (var i = 0; i < captions.length; i++) {
+					var caption = captions[i];
 					if (caption.getAttribute('data-caption-delay')) {
 						setTimeout(animate(caption), Number(caption.getAttribute('data-caption-delay')));
 					} else {
@@ -370,7 +370,7 @@ $document.ready(function () {
 	 * @desc Google map function for getting latitude and longitude
 	 */
 	function getLatLngObject(str, marker, map, callback) {
-		let coordinates = {};
+		var coordinates = {};
 		try {
 			coordinates = JSON.parse(str);
 			callback(new google.maps.LatLng(
@@ -380,8 +380,8 @@ $document.ready(function () {
 		} catch (e) {
 			map.geocoder.geocode({'address': str}, function (results, status) {
 				if (status === google.maps.GeocoderStatus.OK) {
-					let latitude = results[0].geometry.location.lat();
-					let longitude = results[0].geometry.location.lng();
+					var latitude = results[0].geometry.location.lat();
+					var longitude = results[0].geometry.location.lng();
 
 					callback(new google.maps.LatLng(
 						parseFloat(latitude),
@@ -396,9 +396,9 @@ $document.ready(function () {
 	 * @desc Initialize Google maps
 	 */
 	function initMaps() {
-		let key;
+		var key;
 
-		for (let i = 0; i < plugins.maps.length; i++) {
+		for (var i = 0; i < plugins.maps.length; i++) {
 			if (plugins.maps[i].hasAttribute("data-key")) {
 				key = plugins.maps[i].getAttribute("data-key");
 				break;
@@ -406,7 +406,7 @@ $document.ready(function () {
 		}
 
 		$.getScript('//maps.google.com/maps/api/js?' + (key ? 'key=' + key + '&' : '') + 'libraries=geometry,places&v=quarterly', function () {
-			let head = document.getElementsByTagName('head')[0],
+			var head = document.getElementsByTagName('head')[0],
 				insertBefore = head.insertBefore;
 
 			head.insertBefore = function (newElement, referenceElement) {
@@ -415,14 +415,14 @@ $document.ready(function () {
 				}
 				insertBefore.call(head, newElement, referenceElement);
 			};
-			let geocoder = new google.maps.Geocoder;
-			for (let i = 0; i < plugins.maps.length; i++) {
-				let zoom = parseInt(plugins.maps[i].getAttribute("data-zoom"), 10) || 11;
-				let styles = plugins.maps[i].hasAttribute('data-styles') ? JSON.parse(plugins.maps[i].getAttribute("data-styles")) : [];
-				let center = plugins.maps[i].getAttribute("data-center") || "New York";
+			var geocoder = new google.maps.Geocoder;
+			for (var i = 0; i < plugins.maps.length; i++) {
+				var zoom = parseInt(plugins.maps[i].getAttribute("data-zoom"), 10) || 11;
+				var styles = plugins.maps[i].hasAttribute('data-styles') ? JSON.parse(plugins.maps[i].getAttribute("data-styles")) : [];
+				var center = plugins.maps[i].getAttribute("data-center") || "New York";
 
 				// Initialize map
-				let map = new google.maps.Map(plugins.maps[i].querySelectorAll(".google-map")[0], {
+				var map = new google.maps.Map(plugins.maps[i].querySelectorAll(".google-map")[0], {
 					zoom:        zoom,
 					styles:      styles,
 					scrollwheel: false,
@@ -444,28 +444,28 @@ $document.ready(function () {
 				});
 
 				// Add markers from google-map-markers array
-				let markerItems = plugins.maps[i].querySelectorAll(".google-map-markers li");
+				var markerItems = plugins.maps[i].querySelectorAll(".google-map-markers li");
 
 				if (markerItems.length) {
-					let markers = [];
-					for (let j = 0; j < markerItems.length; j++) {
-						let markerElement = markerItems[j];
+					var markers = [];
+					for (var j = 0; j < markerItems.length; j++) {
+						var markerElement = markerItems[j];
 						getLatLngObject(markerElement.getAttribute("data-location"), markerElement, plugins.maps[i], function (location, markerElement, mapElement) {
-							let icon = markerElement.getAttribute("data-icon") || mapElement.getAttribute("data-icon");
-							let activeIcon = markerElement.getAttribute("data-icon-active") || mapElement.getAttribute("data-icon-active");
-							let info = markerElement.getAttribute("data-description") || "";
-							let infoWindow = new google.maps.InfoWindow({
+							var icon = markerElement.getAttribute("data-icon") || mapElement.getAttribute("data-icon");
+							var activeIcon = markerElement.getAttribute("data-icon-active") || mapElement.getAttribute("data-icon-active");
+							var info = markerElement.getAttribute("data-description") || "";
+							var infoWindow = new google.maps.InfoWindow({
 								content: info
 							});
 							markerElement.infoWindow = infoWindow;
-							let markerData = {
+							var markerData = {
 								position: location,
 								map:      mapElement.map
 							}
 							if (icon) {
 								markerData.icon = icon;
 							}
-							let marker = new google.maps.Marker(markerData);
+							var marker = new google.maps.Marker(markerData);
 							markerElement.gmarker = marker;
 							markers.push({
 								markerElement: markerElement,
@@ -474,7 +474,7 @@ $document.ready(function () {
 							marker.isActive = false;
 							// Handle infoWindow close click
 							google.maps.event.addListener(infoWindow, 'closeclick', (function (markerElement, mapElement) {
-								let markerIcon = null;
+								var markerIcon = null;
 								markerElement.gmarker.isActive = false;
 								markerIcon = markerElement.getAttribute("data-icon") || mapElement.getAttribute("data-icon");
 								markerElement.gmarker.setIcon(markerIcon);
@@ -483,10 +483,10 @@ $document.ready(function () {
 
 							// Set marker active on Click and open infoWindow
 							google.maps.event.addListener(marker, 'click', (function (markerElement, mapElement) {
-								let markerIcon;
+								var markerIcon;
 								if (markerElement.infoWindow.getContent().length === 0) return;
-								let gMarker, currentMarker = markerElement.gmarker, currentInfoWindow;
-								for (let k = 0; k < markers.length; k++) {
+								var gMarker, currentMarker = markerElement.gmarker, currentInfoWindow;
+								for (var k = 0; k < markers.length; k++) {
 									if (markers[k].markerElement === markerElement) {
 										currentInfoWindow = markers[k].infoWindow;
 									}
@@ -537,7 +537,7 @@ $document.ready(function () {
 			template:   options.template
 		}, function (data) {
 			options.processed++;
-			let live = $('#' + options.live);
+			var live = $('#' + options.live);
 			if ((options.processed === options.current) && !live.hasClass('cleared')) {
 				live.find('> #search-results').removeClass('active');
 				live.html(data);
@@ -596,11 +596,11 @@ $document.ready(function () {
 		var results, errors = 0;
 
 		if (elements.length) {
-			for (let j = 0; j < elements.length; j++) {
+			for (var j = 0; j < elements.length; j++) {
 
 				var $input = $(elements[j]);
 				if ((results = $input.regula('validate')).length) {
-					for (let k = 0; k < results.length; k++) {
+					for (var k = 0; k < results.length; k++) {
 						errors++;
 						$input.siblings(".form-validation").text(results[k].message).parent().addClass("has-error");
 					}
@@ -626,7 +626,7 @@ $document.ready(function () {
 	 * @return {boolean}
 	 */
 	function validateReCaptcha(captcha) {
-		let captchaToken = captcha.find('.g-recaptcha-response').val();
+		var captchaToken = captcha.find('.g-recaptcha-response').val();
 
 		if (captchaToken.length === 0) {
 			captcha
@@ -638,7 +638,7 @@ $document.ready(function () {
 				.addClass('has-error');
 
 			captcha.on('propertychange', function () {
-				let $this = $(this),
+				var $this = $(this),
 					captchaToken = $this.find('.g-recaptcha-response').val();
 
 				if (captchaToken.length > 0) {
@@ -663,11 +663,11 @@ $document.ready(function () {
 	 * @desc Initialize Google reCaptcha
 	 */
 	window.onloadCaptchaCallback = function () {
-		for (let i = 0; i < plugins.captcha.length; i++) {
-			let
+		for (var i = 0; i < plugins.captcha.length; i++) {
+			var
 				$captcha = $(plugins.captcha[i]),
 				resizeHandler = (function () {
-					let
+					var
 						frame = this.querySelector('iframe'),
 						inner = this.firstElementChild,
 						inner2 = inner.firstElementChild,
@@ -924,9 +924,9 @@ $document.ready(function () {
 	// Swiper
 	if (plugins.swiper.length) {
 
-		for (let i = 0; i < plugins.swiper.length; i++) {
+		for (var i = 0; i < plugins.swiper.length; i++) {
 
-			let
+			var
 				node = plugins.swiper[i],
 				params = parseJSON(node.getAttribute('data-swiper')),
 				defaults = {
@@ -1167,7 +1167,7 @@ $document.ready(function () {
 
 	// RD Navbar
 	if (plugins.rdNavbar.length) {
-		let
+		var
 			navbar = plugins.rdNavbar,
 			aliases = {
 				'-':     0,
@@ -1179,8 +1179,8 @@ $document.ready(function () {
 			},
 			responsive = {};
 
-		for (let alias in aliases) {
-			let link = responsive[aliases[alias]] = {};
+		for (var alias in aliases) {
+			var link = responsive[aliases[alias]] = {};
 			if (navbar.attr('data' + alias + 'layout')) link.layout = navbar.attr('data' + alias + 'layout');
 			if (navbar.attr('data' + alias + 'device-layout')) link.deviceLayout = navbar.attr('data' + alias + 'device-layout');
 			if (navbar.attr('data' + alias + 'hover-on')) link.focusOnHover = navbar.attr('data' + alias + 'hover-on') === 'true';
@@ -1197,7 +1197,7 @@ $document.ready(function () {
 			responsive:   responsive,
 			callbacks:    {
 				onStuck:        function () {
-					let navbarSearch = this.$element.find('.rd-search input');
+					var navbarSearch = this.$element.find('.rd-search input');
 
 					if (navbarSearch) {
 						navbarSearch.val('').trigger('propertychange');
@@ -1210,7 +1210,7 @@ $document.ready(function () {
 					if (this.$clone === null)
 						return;
 
-					let navbarSearch = this.$clone.find('.rd-search input');
+					var navbarSearch = this.$clone.find('.rd-search input');
 
 					if (navbarSearch) {
 						navbarSearch.val('').trigger('propertychange');
@@ -1224,7 +1224,7 @@ $document.ready(function () {
 
 	// lightGallery
 	if (plugins.lightGallery.length) {
-		for (let i = 0; i < plugins.lightGallery.length; i++) {
+		for (var i = 0; i < plugins.lightGallery.length; i++) {
 			initLightGallery(plugins.lightGallery[i]);
 		}
 	}
@@ -1232,9 +1232,9 @@ $document.ready(function () {
 	// lightGallery item
 	if (plugins.lightGalleryItem.length) {
 		// Filter carousel items
-		let notCarouselItems = [];
+		var notCarouselItems = [];
 
-		for (let z = 0; z < plugins.lightGalleryItem.length; z++) {
+		for (var z = 0; z < plugins.lightGalleryItem.length; z++) {
 			if (!$(plugins.lightGalleryItem[z]).parents('.owl-carousel').length &&
 				!$(plugins.lightGalleryItem[z]).parents('.swiper-slider').length &&
 				!$(plugins.lightGalleryItem[z]).parents('.slick-slider').length) {
@@ -1244,14 +1244,14 @@ $document.ready(function () {
 
 		plugins.lightGalleryItem = notCarouselItems;
 
-		for (let i = 0; i < plugins.lightGalleryItem.length; i++) {
+		for (var i = 0; i < plugins.lightGalleryItem.length; i++) {
 			initLightGalleryItem(plugins.lightGalleryItem[i]);
 		}
 	}
 
 	// Dynamic lightGallery
 	if (plugins.lightDynamicGalleryItem.length) {
-		for (let i = 0; i < plugins.lightDynamicGalleryItem.length; i++) {
+		for (var i = 0; i < plugins.lightDynamicGalleryItem.length; i++) {
 			initDynamicLightGallery(plugins.lightDynamicGalleryItem[i]);
 		}
 	}
@@ -1315,15 +1315,15 @@ $document.ready(function () {
 
 	// RD Search
 	if (plugins.search.length || plugins.searchResults) {
-		let handler = "bat/rd-search.php";
-		let defaultTemplate = '<h5 class="search-title"><a target="_top" href="#{href}" class="search-link">#{title}</a></h5>' +
+		var handler = "bat/rd-search.php";
+		var defaultTemplate = '<h5 class="search-title"><a target="_top" href="#{href}" class="search-link">#{title}</a></h5>' +
 			'<p>...#{token}...</p>' +
 			'<p class="match"><em>Terms matched: #{count} - URL: #{href}</em></p>';
-		let defaultFilter = '*.html';
+		var defaultFilter = '*.html';
 
 		if (plugins.search.length) {
-			for (let i = 0; i < plugins.search.length; i++) {
-				let searchItem = $(plugins.search[i]),
+			for (var i = 0; i < plugins.search.length; i++) {
+				var searchItem = $(plugins.search[i]),
 					options = {
 						element:   searchItem,
 						filter:    (searchItem.attr('data-search-filter')) ? searchItem.attr('data-search-filter') : defaultFilter,
@@ -1335,7 +1335,7 @@ $document.ready(function () {
 						timer:     {}
 					};
 
-				let $toggle = $('.rd-navbar-search-toggle');
+				var $toggle = $('.rd-navbar-search-toggle');
 				if ($toggle.length) {
 					$toggle.on('click', (function (searchItem) {
 						return function () {
@@ -1347,7 +1347,7 @@ $document.ready(function () {
 				}
 
 				if (options.live) {
-					let clearHandler = false;
+					var clearHandler = false;
 
 					searchItem.find('input').on("input propertychange", $.proxy(function () {
 						this.term = this.element.find('input').val().trim();
@@ -1385,8 +1385,8 @@ $document.ready(function () {
 		}
 
 		if (plugins.searchResults.length) {
-			let regExp = /\?.*s=([^&]+)\&filter=([^&]+)/g;
-			let match = regExp.exec(location.search);
+			var regExp = /\?.*s=([^&]+)\&filter=([^&]+)/g;
+			var match = regExp.exec(location.search);
 
 			if (match !== null) {
 				$.get(handler, {
@@ -1424,7 +1424,7 @@ $document.ready(function () {
 
 	// RD Mailform
 	if (plugins.rdMailForm.length) {
-		let i, j, k,
+		var i, j, k,
 			msg = {
 				'MF000': 'Successfully sent!',
 				'MF001': 'Recipients are not set!',
@@ -1436,7 +1436,7 @@ $document.ready(function () {
 			};
 
 		for (i = 0; i < plugins.rdMailForm.length; i++) {
-			let $form = $(plugins.rdMailForm[i]),
+			var $form = $(plugins.rdMailForm[i]),
 				formHasCaptcha = false;
 
 			$form.attr('novalidate', 'novalidate').ajaxForm({
@@ -1448,7 +1448,7 @@ $document.ready(function () {
 					if (isNoviBuilder)
 						return;
 
-					let form = $(plugins.rdMailForm[this.extraData.counter]),
+					var form = $(plugins.rdMailForm[this.extraData.counter]),
 						inputs = form.find("[data-constraints]"),
 						output = $("#" + form.attr("data-form-output")),
 						captcha = form.find('.recaptcha'),
@@ -1460,7 +1460,7 @@ $document.ready(function () {
 
 						// veify reCaptcha
 						if (captcha.length) {
-							let captchaToken = captcha.find('.g-recaptcha-response').val(),
+							var captchaToken = captcha.find('.g-recaptcha-response').val(),
 								captchaMsg = {
 									'CPT001': 'Please, setup you "site key" and "secret key" of reCaptcha',
 									'CPT002': 'Something wrong with google reCaptcha'
@@ -1511,7 +1511,7 @@ $document.ready(function () {
 					if (isNoviBuilder)
 						return;
 
-					let output = $("#" + $(plugins.rdMailForm[this.extraData.counter]).attr("data-form-output")),
+					var output = $("#" + $(plugins.rdMailForm[this.extraData.counter]).attr("data-form-output")),
 						form = $(plugins.rdMailForm[this.extraData.counter]);
 
 					output.text(msg[result]);
@@ -1526,7 +1526,7 @@ $document.ready(function () {
 					if (isNoviBuilder)
 						return;
 
-					let form = $(plugins.rdMailForm[this.extraData.counter]),
+					var form = $(plugins.rdMailForm[this.extraData.counter]),
 						output = $("#" + form.attr("data-form-output")),
 						select = form.find('select');
 
@@ -1716,8 +1716,8 @@ $document.ready(function () {
 
 	// Countdown
 	if (plugins.countdown.length) {
-		for (let i = 0; i < plugins.countdown.length; i++) {
-			let
+		for (var i = 0; i < plugins.countdown.length; i++) {
+			var
 				node = plugins.countdown[i],
 				countdown = aCountdown({
 					node:  node,

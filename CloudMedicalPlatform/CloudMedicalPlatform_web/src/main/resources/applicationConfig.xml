@@ -42,6 +42,8 @@
         <!--排除controller注解-->
         <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>
+    <bean class="com.alibaba.fastjson.JSONObject" id="jsonObject"></bean>
+
     <!--配置事务-->
     <bean class="org.springframework.jdbc.datasource.DataSourceTransactionManager" id="transactionManager">
         <property name="dataSource" ref="dataSource"></property>

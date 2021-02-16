@@ -57,4 +57,8 @@ public class UserServiceImpl implements IUserService {
         }
         userDao.saveUser(user);
     }
+
+    public User checkRegist(String name) throws Exception {
+        return userDao.findUserByUsername(name);
+    }
 }
