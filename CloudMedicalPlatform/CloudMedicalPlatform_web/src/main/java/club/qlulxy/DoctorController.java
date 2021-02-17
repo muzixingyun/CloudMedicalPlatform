@@ -6,9 +6,12 @@ import club.qlulxy.service.IDoctorService;
 import club.qlulxy.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.List;
 
 /**
  * @author ：李兴运
@@ -43,5 +46,11 @@ public class DoctorController {
     public String join(Doctor doctor) throws Exception{
         doctorService.doctorJoin(doctor);
         return "../index";
+    }
+    @RequestMapping("/findAll")
+    public String findAll(Model model) throws Exception{
+        List<Doctor> doctorList = doctorService.findAll();
+        model.addAttribute("doctorList",doctorList);
+        return "user-register";
     }
 }

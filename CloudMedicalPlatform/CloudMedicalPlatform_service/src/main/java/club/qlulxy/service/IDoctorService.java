@@ -1,6 +1,10 @@
 package club.qlulxy.service;
 
-import club.qlulxy.domain.Doctor; /**
+import club.qlulxy.domain.Doctor;
+
+import java.util.List;
+
+/**
  * @author ：李兴运
  * @date ：Created in 2021/2/16 17:27
  * @description：
@@ -9,4 +13,6 @@ import club.qlulxy.domain.Doctor; /**
  */
 public interface IDoctorService {
     void doctorJoin(Doctor doctor) throws Exception;
+
+    List<Doctor> findAll() throws Exception;
 }

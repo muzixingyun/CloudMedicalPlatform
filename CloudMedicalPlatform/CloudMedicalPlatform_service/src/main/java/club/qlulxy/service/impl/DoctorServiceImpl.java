@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * @author ：李兴运
  * @date ：Created in 2021/2/16 17:28
@@ -39,5 +41,9 @@ public class DoctorServiceImpl implements IDoctorService {
         Integer departmentmentId =  departmentDao.seleceId(doctor.getDepartment());
         doctor.setDepartmentId(departmentmentId);
         doctorDao.doctorJoin(doctor);
+    }
+
+    public List<Doctor> findAll() throws Exception {
+        return doctorDao.findAll();
     }
 }

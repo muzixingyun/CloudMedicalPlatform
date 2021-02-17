@@ -101,7 +101,7 @@
                                         <li><a href="${pageContext.request.contextPath}/our-team.jsp"><span>线上问诊</span><span
                                                 class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
                                         </li>
-                                        <li><a href="${pageContext.request.contextPath}/#"><span>预约挂号</span><span
+                                        <li><a href="${pageContext.request.contextPath}/doctor/findAll"><span>预约挂号</span><span
                                                 class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
 
                                         </li>
